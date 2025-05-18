@@ -1,10 +1,11 @@
 import React from 'react'
+import logo from '../../logos/logo_semfundo.png'
 
 export default function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <img src="/pvtech_logo.png" alt="Logo da PV Tech Solutions" className="logo" />
+        <img src={logo} alt="Logo da PV Tech Solutions" className="logo" />
         <nav className="nav" aria-label="Navegação principal">
           <ul className="nav-list">
             <li><a href="#sobre">Sobre</a></li>

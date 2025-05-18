@@ -90,34 +90,161 @@ img {
   }
 }
 
+.sobre-nos {
+  display: flex; 
+  align-items: center;
+  gap: 40px; 
+  flex-wrap: wrap; 
+}
+
+.sobre-nos .texto {
+  flex: 1; 
+  min-width: 300px; 
+  
+}
+
+.sobre-nos .imagem {
+  flex: 1; 
+  min-width: 250px; 
+  text-align: center; 
+  
+}
+
+.sobre-nos .imagem img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+/* --- Estilos para o Texto dentro da Seção Sobre Nós --- */
+
+.sobre-nos .texto h2 {
+  font-size: 2.5rem; 
+  margin-bottom: 1rem; 
+  color: #fff; 
+  
+}
+
+.sobre-nos .texto h2 span {
+  color: #00c2c7; 
+}
+
+.sobre-nos .texto p {
+  font-size: 1.1rem; 
+  line-height: 1.8; 
+  margin-bottom: 1.5rem; 
+  
+}
+
+/* Estilo para a parte em negrito dentro dos parágrafos */
+.sobre-nos .texto p strong {
+  font-weight: 700; 
+  color: #00c2c7; 
+}
+
+
+.sobre-nos .texto p em {
+    font-weight: 700;
+    font-style: italic; 
+    color: #00c2c7; 
+}
+
+
+.sobre-nos .texto p + p {
+    margin-top: 1rem; 
+}
+
+@media (max-width: 768px) {
+   .sobre-nos .texto h2 {
+     font-size: 2rem; 
+     text-align: center; 
+   }
+   .sobre-nos .texto p {
+     font-size: 1rem; 
+     line-height: 1.6; 
+     text-align: center; 
+   }
+    /* Se centralizar o texto, pode querer ajustar o alinhamento em telas maiores de volta para left */
+    /* @media (min-width: 769px) {
+        .sobre-nos .texto p {
+            text-align: left;
+        }
+    } */
+}
+
+/* --- Estilos para o Rodapé (Footer) --- */
+
 .footer {
-  background-color: #021b20;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 4rem;
+  background-color: #021b20; /* Cor de fundo do rodapé */
+  color: #fff; /* Cor do texto */
+  padding: 3rem 2rem; /* <--- Ajustado o padding interno (top/bottom e left/right) */
+  text-align: center; /* Centraliza o texto e elementos inline/inline-block */
+  margin-top: 4rem; /* Espaço acima do rodapé */
+  /* Opcional: Adicionar uma borda superior para separar visualmente do conteúdo */
+  /* border-top: 1px solid #0f4c5c; */
 }
 
 .footer-content {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px; /* <--- Aumentado um pouco a largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza o contêiner de conteúdo */
+  display: flex; /* Usa Flexbox para organizar os filhos em coluna */
+  flex-direction: column; /* Empilha os filhos verticalmente */
+  align-items: center; /* Centraliza os filhos horizontalmente dentro do flex container */
+  gap: 1.5rem; /* <--- Adiciona espaço entre os filhos diretos (logo, address, copy) */
 }
 
 .footer-logo {
-  max-width: 150px;
-  margin-bottom: 1rem;
+  max-width: 180px; /* <--- Aumentado um pouco o tamanho máximo da logo */
+  /* margin-bottom: 1rem; /* Removido, pois o gap no footer-content já lida com o espaço */
 }
 
 .footer address {
-  font-style: normal;
-  line-height: 1.6;
+  font-style: normal; /* Mantém o estilo normal da fonte */
+  line-height: 1.8; /* <--- Ajustado a altura da linha para melhor legibilidade */
+  /* margin-bottom: 1rem; /* Removido, pois o gap no footer-content já lida com o espaço */
+  color: #ccc; /* Cor sutil para as informações de contato */
+  font-size: 1rem; /* Tamanho da fonte para as informações de contato */
 }
 
-.footer-copy {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
+/* Estilo para os parágrafos dentro do address */
+.footer address p {
+    margin-bottom: 0.5rem; /* Espaço entre as linhas de contato/horário */
 }
+
+.footer address p:last-child {
+    margin-bottom: 0; /* Remove a margem inferior do último parágrafo dentro do address */
+}
+
+
+.footer-copy {
+  /* margin-top: 1rem; /* Removido, pois o gap no footer-content já lida com o espaço */
+  font-size: 0.9rem;
+  color: #aaa; /* <--- Cor mais sutil para o copyright */
+}
+
+/* --- Responsividade para o Rodapé --- */
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 1rem; /* Diminui o espaço entre os itens em telas menores */
+    }
+
+    .footer-logo {
+        max-width: 150px; /* Diminui a logo em telas menores */
+    }
+
+    .footer address {
+        font-size: 0.9rem; /* Diminui a fonte do contato em telas menores */
+        line-height: 1.6; /* Ajusta a altura da linha em telas menores */
+    }
+
+    .footer address p {
+        margin-bottom: 0.3rem; /* Diminui o espaço entre as linhas de contato em mobile */
+    }
+
+    .footer-copy {
+        font-size: 0.8rem; /* Diminui a fonte do copyright em telas menores */
+    }
+}
+
 
 .header {
   background-color: #021b20;
@@ -133,70 +260,88 @@ img {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; 
 }
 
 .logo {
   max-width: 150px;
+    margin-right: 30px; 
+    /* Ajuste o valor (30px) conforme a distância desejada */
 }
 
 .nav-list {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.5rem; /* Espaço entre os itens do menu. Ajuste se necessário. */
   list-style: none;
 }
 
 .nav-list a {
-  color: #fff;
-  font-weight: 500;
-  transition: color 0.3s ease;
+color: #fff;
+font-weight: 500;
+transition: color 0.3s ease;
 }
 
 .nav-list a:hover {
-  color: #00c2c7;
+color: #00c2c7;
 }
 
 .btn-orcamento {
-  background-color: #00c2c7;
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-weight: 600;
+background-color: #00c2c7;
+color: #000;
+padding: 0.5rem 1rem;
+border-radius: 5px;
+font-weight: 600;
 }
 
 .hero {
-  background: linear-gradient(120deg, #021b20, #042b33);
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  color: #fff;
+/* Remove o fundo gradiente */
+/* background: linear-gradient(120deg, #021b20, #042b33); */
+
+/* Define a imagem de fundo */
+background-image: url('../../logos/banner.png'); /* <-- COLOQUE O CAMINHO DA SUA IMAGEM AQUI */
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-color: #021b20; /* Fallback */
+
+height: 70vh; /* <--- ALTURA AJUSTADA (MUDE CONFORME PRECISAR) */
+
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 2rem;
+color: #fff; /* Cor do texto */
 }
 
+
 .hero-content {
-  max-width: 800px;
+max-width: 800px;
+  /* Opcional: adicionar um fundo semi-transparente ao conteúdo para melhorar a leitura */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* padding: 20px; */
+  /* border-radius: 10px; */
 }
 
 .hero h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+font-size: 3rem;
+line-height: 1.2;
+margin-bottom: 1rem;
 }
 
 .hero h1 span {
-  color: #00c2c7;
+color: #00c2c7;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+font-size: 1.25rem;
+margin-bottom: 2rem;
 }
+
 
 .btn-saiba-mais {
   background-color: #00c2c7;
-  color: #000;
+  color: #fcfcfc;
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
   font-weight: 600;
@@ -207,30 +352,48 @@ img {
   background-color: #00a5ab;
 }
 
+/* --- Estilos para a Seção de Serviços --- */
+
+.servicos {
+    text-align: center; 
+}
+
 .servicos h2 {
   font-size: 2rem;
-  text-align: center;
+  text-align: center; 
   margin-bottom: 2rem;
+  color: #fff; 
 }
 
 .servicos h2 span {
-  color: #00c2c7;
+  color: #00c2c7; 
 }
 
 .lista-servicos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 2rem; /* Espaço entre os cards */
+  margin-top: 2rem;
 }
 
 .lista-servicos .item {
-  background-color: #06343d;
-  padding: 1.5rem;
+  background-color: #3fb1b2;
+  padding: 1.5rem; /* <--- AJUSTE O PREENCHIMENTO INTERNO. Diminua se quiser o ícone mais perto das bordas. */
   border-radius: 10px;
-  width: 250px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  flex: 0 1 300px; /* Base flexível do card. Ajuste se quiser cards maiores/menores. */
+  max-width: 100%;
+  /* Remova text-align: center; se não houver mais texto para centralizar */
+  /* text-align: center; */
+  display: flex; /* Adiciona display: flex para centralizar a imagem dentro do item */
+  justify-content: center; /* Centraliza horizontalmente a imagem */
+  align-items: center; /* Centraliza verticalmente a imagem */
+  /* Defina uma altura fixa ou mínima se quiser que todos os cards tenham o mesmo tamanho */
+  height: 200px; /* <--- Exemplo de altura fixa para o card (ajuste) */
+  /* min-height: 200px; /* Ou use min-height */
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .lista-servicos .item:hover {
@@ -239,13 +402,197 @@ img {
 }
 
 .lista-servicos .item img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 1rem;
+  /* As propriedades abaixo farão a imagem tentar preencher o espaço do contêiner .item, respeitando object-fit */
+  width: 100%; /* <--- Faz a imagem tentar ocupar 100% da largura do contêiner */
+  height: 100%; /* <--- Faz a imagem tentar ocupar 100% da altura do contêiner */
+  object-fit: contain; /* <--- Garante que a imagem seja redimensionada para caber no contêiner mantendo sua proporção */
+
+  /* Remova margens que eram para separar do texto */
+  margin: 0;
+  display: block;
 }
 
-.lista-servicos .item p {
-  font-weight: 600;
-  font-size: 1.1rem;
+/* --- Responsividade para a Seção de Serviços --- */
+@media (max-width: 768px) {
+  .lista-servicos {
+    gap: 1.5rem;
+  }
+
+  .lista-servicos .item {
+    flex-basis: 200px; /* Ajuste a base para telas médias */
+    padding: 1rem; /* Ajuste o padding em telas médias */
+    height: 180px; /* Ajuste a altura em telas médias */
+  }
+   
+}
+
+@media (max-width: 480px) {
+  .lista-servicos {
+     gap: 1rem;
+  }
+  .lista-servicos .item {
+     flex-basis: 100%; /* Ocupa a largura total em telas muito pequenas */
+     padding: 0.8rem; /* Ajuste o padding em telas muito pequenas */
+     height: 150px; /* Ajuste a altura em telas muito pequenas */
+  }
+    
+}
+
+* --- Estilos para a Seção de Contato --- */
+
+/* A classe .section já fornece padding, max-width e margin: auto */
+.contato {
+    /* Adicione estilos específicos para a seção de contato se necessário */
+    background-color: #042b33; /* Cor de fundo da seção, se diferente do body */
+    color: #fff; /* Cor do texto */
+    padding-top: 4rem; /* Espaçamento no topo da seção */
+    padding-bottom: 4rem; /* Espaçamento na parte inferior da seção */
+}
+
+.contato-container {
+    display: flex; /* Habilita Flexbox para alinhar formulário e info lado a lado */
+    gap: 40px; /* Espaço entre as colunas (formulário e info) */
+    flex-wrap: wrap; /* Permite que as colunas quebrem para a próxima linha em telas menores */
+    align-items: flex-start; /* Alinha os itens (colunas) no topo */
+    max-width: 1200px; /* Garante que o contêiner não seja muito largo */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+    padding: 0 2rem; /* Padding horizontal interno */
+}
+
+.formulario {
+    flex: 1; /* Permite que o formulário cresça e ocupe espaço */
+    min-width: 300px; /* Largura mínima antes de quebrar para a próxima linha */
+    background-color: #06343d; /* Fundo do card do formulário */
+    padding: 2rem; /* Preenchimento interno do card do formulário */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #00c2c7; /* Cor do título "Deixe seu contato" */
+    text-align: center; /* Centraliza o título do formulário */
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos do formulário em coluna */
+    gap: 1rem; /* Espaço entre os campos do formulário */
+}
+
+.formulario input,
+.formulario textarea {
+    padding: 1rem;
+    border: 1px solid #0f4c5c; /* Borda sutil */
+    border-radius: 5px;
+    background-color: #021b20; /* Fundo dos campos */
+    color: #fff; /* Cor do texto digitado */
+    font-family: 'Montserrat', sans-serif; /* Usa a fonte global */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input::placeholder,
+.formulario textarea::placeholder {
+    color: #ccc; /* Cor do placeholder */
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #00c2c7; /* Destaca a borda ao focar */
+    box-shadow: 0 0 5px rgba(0, 194, 199, 0.5); /* Sombra sutil ao focar */
+}
+
+.formulario button {
+    background-color: #00c2c7; /* Cor de fundo do botão */
+    color: #000; /* Cor do texto do botão */
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 1rem; /* Espaço acima do botão */
+}
+
+.formulario button:hover {
+    background-color: #00e0e5; /* Cor de fundo ao passar o mouse */
+}
+
+.formulario button:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+
+.contato-info {
+    flex: 1; /* Permite que a coluna de info cresça e ocupe espaço */
+    min-width: 300px; /* Largura mínima antes de quebrar */
+    /* Remova text-align: center; se quiser alinhar à esquerda */
+    /* text-align: center; */
+}
+
+.contato-info h1 {
+    font-size: 2.5rem; /* Tamanho do título grande */
+    line-height: 1.2; /* Espaçamento entre as linhas do título */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+    color: #fff; /* Cor do título */
+}
+
+.contato-info h1 span {
+    color: #00c2c7; /* Cor da parte colorida do título */
+}
+
+.contato-info p {
+    font-size: 1.1rem; /* Tamanho da fonte dos parágrafos */
+    line-height: 1.8; /* Espaçamento entre as linhas dos parágrafos */
+    margin-bottom: 1rem; /* Espaço entre os parágrafos */
+    color: #ccc; /* Cor dos parágrafos (ajuste se precisar) */
+}
+
+
+/* --- Responsividade para a Seção de Contato --- */
+
+@media (max-width: 768px) {
+  .contato-container {
+    flex-direction: column; /* Empilha as colunas verticalmente em telas menores */
+    gap: 3rem; /* Espaço entre o formulário e a info quando empilhados */
+  }
+
+  .formulario,
+  .contato-info {
+    min-width: unset; /* Remove a largura mínima */
+    width: 100%; /* Ocupa a largura total */
+  }
+
+  .contato-info {
+      order: -1; /* Opcional: move a info (texto) para cima do formulário em mobile */
+      text-align: center; /* Centraliza o texto em mobile */
+  }
+
+  .contato-info h1 {
+      font-size: 2rem; /* Ajusta o tamanho do título em mobile */
+  }
+
+  .contato-info p {
+      font-size: 1rem; /* Ajusta o tamanho dos parágrafos em mobile */
+      line-height: 1.6; /* Ajusta a altura da linha em mobile */
+  }
+
+  .formulario {
+      padding: 1.5rem; /* Ajusta o padding do formulário em mobile */
+  }
+
+  .formulario h3 {
+      font-size: 1.3rem; /* Ajusta o tamanho do título do formulário em mobile */
+  }
+
+  .formulario input,
+  .formulario textarea,
+  .formulario button {
+      font-size: 1rem; /* Ajusta o tamanho da fonte dos campos e botão em mobile */
+      padding: 0.8rem; /* Ajusta o padding dos campos e botão em mobile */
+  }
 }

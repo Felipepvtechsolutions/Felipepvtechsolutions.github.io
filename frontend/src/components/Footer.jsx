@@ -1,10 +1,11 @@
 import React from 'react'
+import logo from '../../logos/logo_semfundo.png'
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <img src="/pvtech_logo.png" alt="Logo da PV Tech Solutions" className="footer-logo" />
+        <img src={logo} alt="Logo da PV Tech Solutions" className="footer-logo" />
         <address>
           <p>📞 (17) 99641-6135 | ✉️ contato@pvtechsolutions.com.br</p>
           <p>🕒 Segunda a Sexta - Das 8h às 18h</p>
