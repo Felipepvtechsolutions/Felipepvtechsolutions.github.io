@@ -22,6 +22,10 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest # Ambiente de execução (máquina virtual Ubuntu)
 
+    # Adiciona o ambiente de deploy para GitHub Pages
+    environment: # <--- ADICIONADO
+      name: github-pages # <--- ADICIONADO
+
     steps:
       # Passo 1: Faz o checkout do código do repositório
       - name: Checkout code
@@ -35,7 +39,7 @@ jobs:
           cache: 'npm' # Habilita cache para dependências npm
           # Adiciona o caminho para o arquivo de lock de dependências do frontend
           # Isso diz ao setup-node onde encontrar o package-lock.json
-          cache-dependency-path: './frontend/package-lock.json' # <--- ADICIONADO/CORRIGIDO
+          cache-dependency-path: './frontend/package-lock.json'
 
       # Passo 3: Instala as dependências do frontend
       # Navega para a pasta frontend e roda npm install
@@ -63,7 +67,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Mapeia a pasta 'dist' gerada pelo build como o artefato a ser publicado
-          path: './frontend/dist' # <--- Caminho para a pasta dist gerada
+          path: './frontend/dist'
 
       # Passo 7: Deploy para GitHub Pages
       # Usa o artefato carregado para publicar o site
