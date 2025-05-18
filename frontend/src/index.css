@@ -1,11 +1,11 @@
-/* Reset básico */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fonte global */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 body {
@@ -31,14 +31,14 @@ img {
   display: block;
 }
 
-/* Container principal das seções */
+
 .section {
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: auto;
 }
 
-/* Botões reutilizáveis */
+
 .btn-orcamento {
   background-color: #00c2c7;
   color: #000;
@@ -65,7 +65,7 @@ img {
   background-color: #13788b;
 }
 
-/* Animação suave de entrada */
+
 .fade-in {
   animation: fadeIn 1s ease-in forwards;
   opacity: 0;
@@ -77,7 +77,7 @@ img {
   }
 }
 
-/* Responsividade básica */
+
 @media (max-width: 768px) {
   .section {
     padding: 2rem 1rem;
@@ -115,7 +115,7 @@ img {
   height: auto; 
 }
 
-/* --- Estilos para o Texto dentro da Seção Sobre Nós --- */
+
 
 .sobre-nos .texto h2 {
   font-size: 2.5rem; 
@@ -135,7 +135,7 @@ img {
   
 }
 
-/* Estilo para a parte em negrito dentro dos parágrafos */
+
 .sobre-nos .texto p strong {
   font-weight: 700; 
   color: #00c2c7; 
@@ -163,85 +163,76 @@ img {
      line-height: 1.6; 
      text-align: center; 
    }
-    /* Se centralizar o texto, pode querer ajustar o alinhamento em telas maiores de volta para left */
-    /* @media (min-width: 769px) {
-        .sobre-nos .texto p {
-            text-align: left;
-        }
-    } */
+    
 }
 
-/* --- Estilos para o Rodapé (Footer) --- */
+
 
 .footer {
-  background-color: #021b20; /* Cor de fundo do rodapé */
-  color: #fff; /* Cor do texto */
-  padding: 3rem 2rem; /* <--- Ajustado o padding interno (top/bottom e left/right) */
-  text-align: center; /* Centraliza o texto e elementos inline/inline-block */
-  margin-top: 4rem; /* Espaço acima do rodapé */
-  /* Opcional: Adicionar uma borda superior para separar visualmente do conteúdo */
-  /* border-top: 1px solid #0f4c5c; */
+  background-color: #021b20; 
+  color: #fff; 
+  padding: 3rem 2rem; 
+  text-align: center; 
+  margin-top: 4rem; 
+ 
 }
 
 .footer-content {
-  max-width: 900px; /* <--- Aumentado um pouco a largura máxima do conteúdo */
-  margin: 0 auto; /* Centraliza o contêiner de conteúdo */
-  display: flex; /* Usa Flexbox para organizar os filhos em coluna */
-  flex-direction: column; /* Empilha os filhos verticalmente */
-  align-items: center; /* Centraliza os filhos horizontalmente dentro do flex container */
-  gap: 1.5rem; /* <--- Adiciona espaço entre os filhos diretos (logo, address, copy) */
+  max-width: 900px; 
+  margin: 0 auto; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 1.5rem; 
 }
 
 .footer-logo {
-  max-width: 180px; /* <--- Aumentado um pouco o tamanho máximo da logo */
-  /* margin-bottom: 1rem; /* Removido, pois o gap no footer-content já lida com o espaço */
+  max-width: 180px; 
 }
 
 .footer address {
-  font-style: normal; /* Mantém o estilo normal da fonte */
-  line-height: 1.8; /* <--- Ajustado a altura da linha para melhor legibilidade */
-  /* margin-bottom: 1rem; /* Removido, pois o gap no footer-content já lida com o espaço */
-  color: #ccc; /* Cor sutil para as informações de contato */
-  font-size: 1rem; /* Tamanho da fonte para as informações de contato */
+  font-style: normal; 
+  line-height: 1.8; 
+  color: #ccc; 
+  font-size: 1rem; 
 }
 
-/* Estilo para os parágrafos dentro do address */
+
 .footer address p {
-    margin-bottom: 0.5rem; /* Espaço entre as linhas de contato/horário */
+    margin-bottom: 0.5rem; 
 }
 
 .footer address p:last-child {
-    margin-bottom: 0; /* Remove a margem inferior do último parágrafo dentro do address */
+    margin-bottom: 0; 
 }
 
 
 .footer-copy {
-  /* margin-top: 1rem; /* Removido, pois o gap no footer-content já lida com o espaço */
   font-size: 0.9rem;
-  color: #aaa; /* <--- Cor mais sutil para o copyright */
+  color: #aaa; 
 }
 
-/* --- Responsividade para o Rodapé --- */
+
 @media (max-width: 768px) {
     .footer-content {
-        gap: 1rem; /* Diminui o espaço entre os itens em telas menores */
+        gap: 1rem;
     }
 
     .footer-logo {
-        max-width: 150px; /* Diminui a logo em telas menores */
+        max-width: 150px;
     }
 
     .footer address {
-        font-size: 0.9rem; /* Diminui a fonte do contato em telas menores */
-        line-height: 1.6; /* Ajusta a altura da linha em telas menores */
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
 
     .footer address p {
-        margin-bottom: 0.3rem; /* Diminui o espaço entre as linhas de contato em mobile */
+        margin-bottom: 0.3rem;
     }
 
     .footer-copy {
-        font-size: 0.8rem; /* Diminui a fonte do copyright em telas menores */
+        font-size: 0.8rem;
     }
 }
 
@@ -266,12 +257,12 @@ img {
 .logo {
   max-width: 150px;
     margin-right: 30px; 
-    /* Ajuste o valor (30px) conforme a distância desejada */
+    
 }
 
 .nav-list {
   display: flex;
-  gap: 1.5rem; /* Espaço entre os itens do menu. Ajuste se necessário. */
+  gap: 1.5rem; 
   list-style: none;
 }
 
@@ -294,33 +285,26 @@ font-weight: 600;
 }
 
 .hero {
-/* Remove o fundo gradiente */
-/* background: linear-gradient(120deg, #021b20, #042b33); */
-
-/* Define a imagem de fundo */
-background-image: url('../../logos/banner.png'); /* <-- COLOQUE O CAMINHO DA SUA IMAGEM AQUI */
+background-image: url('../../logos/banner.png');
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
-background-color: #021b20; /* Fallback */
+background-color: #021b20;
 
-height: 70vh; /* <--- ALTURA AJUSTADA (MUDE CONFORME PRECISAR) */
+height: 70vh; 
 
 display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
 padding: 2rem;
-color: #fff; /* Cor do texto */
+color: #fff; 
 }
 
 
 .hero-content {
 max-width: 800px;
-  /* Opcional: adicionar um fundo semi-transparente ao conteúdo para melhorar a leitura */
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  /* padding: 20px; */
-  /* border-radius: 10px; */
+ 
 }
 
 .hero h1 {
@@ -352,8 +336,6 @@ margin-bottom: 2rem;
   background-color: #00a5ab;
 }
 
-/* --- Estilos para a Seção de Serviços --- */
-
 .servicos {
     text-align: center; 
 }
@@ -373,25 +355,20 @@ margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem; /* Espaço entre os cards */
+  gap: 2rem; 
   margin-top: 2rem;
 }
 
 .lista-servicos .item {
   background-color: #3fb1b2;
-  padding: 1.5rem; /* <--- AJUSTE O PREENCHIMENTO INTERNO. Diminua se quiser o ícone mais perto das bordas. */
+  padding: 1.5rem; 
   border-radius: 10px;
-  flex: 0 1 300px; /* Base flexível do card. Ajuste se quiser cards maiores/menores. */
+  flex: 0 1 300px; 
   max-width: 100%;
-  /* Remova text-align: center; se não houver mais texto para centralizar */
-  /* text-align: center; */
-  display: flex; /* Adiciona display: flex para centralizar a imagem dentro do item */
-  justify-content: center; /* Centraliza horizontalmente a imagem */
-  align-items: center; /* Centraliza verticalmente a imagem */
-  /* Defina uma altura fixa ou mínima se quiser que todos os cards tenham o mesmo tamanho */
-  height: 200px; /* <--- Exemplo de altura fixa para o card (ajuste) */
-  /* min-height: 200px; /* Ou use min-height */
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -402,26 +379,24 @@ margin-bottom: 2rem;
 }
 
 .lista-servicos .item img {
-  /* As propriedades abaixo farão a imagem tentar preencher o espaço do contêiner .item, respeitando object-fit */
-  width: 100%; /* <--- Faz a imagem tentar ocupar 100% da largura do contêiner */
-  height: 100%; /* <--- Faz a imagem tentar ocupar 100% da altura do contêiner */
-  object-fit: contain; /* <--- Garante que a imagem seja redimensionada para caber no contêiner mantendo sua proporção */
-
-  /* Remova margens que eram para separar do texto */
+ 
+  width: 100%;
+  height: 100%; 
+  object-fit: contain; 
   margin: 0;
   display: block;
 }
 
-/* --- Responsividade para a Seção de Serviços --- */
+
 @media (max-width: 768px) {
   .lista-servicos {
     gap: 1.5rem;
   }
 
   .lista-servicos .item {
-    flex-basis: 200px; /* Ajuste a base para telas médias */
-    padding: 1rem; /* Ajuste o padding em telas médias */
-    height: 180px; /* Ajuste a altura em telas médias */
+    flex-basis: 200px;
+    padding: 1rem;
+    height: 180px;
   }
    
 }
@@ -431,39 +406,37 @@ margin-bottom: 2rem;
      gap: 1rem;
   }
   .lista-servicos .item {
-     flex-basis: 100%; /* Ocupa a largura total em telas muito pequenas */
-     padding: 0.8rem; /* Ajuste o padding em telas muito pequenas */
-     height: 150px; /* Ajuste a altura em telas muito pequenas */
+     flex-basis: 100%; 
+     padding: 0.8rem; 
+     height: 150px;
   }
     
 }
 
-* --- Estilos para a Seção de Contato --- */
 
-/* A classe .section já fornece padding, max-width e margin: auto */
 .contato {
-    /* Adicione estilos específicos para a seção de contato se necessário */
-    background-color: #042b33; /* Cor de fundo da seção, se diferente do body */
-    color: #fff; /* Cor do texto */
-    padding-top: 4rem; /* Espaçamento no topo da seção */
-    padding-bottom: 4rem; /* Espaçamento na parte inferior da seção */
+   
+    background-color: #042b33;
+    color: #fff;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .contato-container {
-    display: flex; /* Habilita Flexbox para alinhar formulário e info lado a lado */
-    gap: 40px; /* Espaço entre as colunas (formulário e info) */
-    flex-wrap: wrap; /* Permite que as colunas quebrem para a próxima linha em telas menores */
-    align-items: flex-start; /* Alinha os itens (colunas) no topo */
-    max-width: 1200px; /* Garante que o contêiner não seja muito largo */
-    margin: 0 auto; /* Centraliza o contêiner na página */
-    padding: 0 2rem; /* Padding horizontal interno */
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .formulario {
-    flex: 1; /* Permite que o formulário cresça e ocupe espaço */
-    min-width: 300px; /* Largura mínima antes de quebrar para a próxima linha */
-    background-color: #06343d; /* Fundo do card do formulário */
-    padding: 2rem; /* Preenchimento interno do card do formulário */
+    flex: 1;
+    min-width: 300px;
+    background-color: #06343d;
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
