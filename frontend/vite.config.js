@@ -1,11 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+    import { defineConfig } from 'vite'
+    import react from '@vitejs/plugin-react'
+    
+    const repoName = 'Felipepvtechsolutions.github.io'; 
+    export default defineConfig({
+      plugins: [react()],
+      base: `/${repoName}/`, 
 
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    proxy: {
-      '/contato': 'http://localhost:5000'
-    }
-  }
-})
+      server: {
+        proxy: {
+          
+          '/contato': 'http://localhost:5000'
+        }
+      }
+    })
+    
