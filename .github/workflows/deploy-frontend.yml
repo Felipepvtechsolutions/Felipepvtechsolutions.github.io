@@ -1,0 +1,67 @@
+name: Deploy Frontend to GitHub Pages
+
+# Evento que dispara o workflow
+on:
+  push:
+    branches:
+      - main 
+    
+  pull_request:
+    branches:
+      - main
+
+# Permissões necessárias para o workflow publicar nas Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Trabalhos (jobs) a serem executados
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Faz o checkout do código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Passo 2: Configura o Node.js (versão 20 é uma boa escolha recente)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # Passo 3: Instala as dependências do frontend
+      
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+
+      # Passo 4: Roda o build do frontend para produção
+        # Isso gera os arquivos estáticos que serão publicados
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+
+      # Passo 5: Configura o ambiente de Pages
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Passo 6: Carrega os artefatos do build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Mapeia a pasta 'dist' gerada pelo build como o artefato a ser publicado
+          path: './frontend/dist'
+
+      # Passo 7: Deploy para GitHub Pages
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
