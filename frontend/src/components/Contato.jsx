@@ -13,6 +13,7 @@ export default function Contato() {
   useEffect(() => {
     // Verifica se estamos no navegador antes de tentar fetch (para evitar erros em SSR)
     if (typeof window !== 'undefined') {
+      // Mantém a requisição para ipapi.co, pois ela busca o IP do cliente, não do servidor
       fetch('https://ipapi.co/json/')
         .then(res => res.json())
         .then(data => {
@@ -43,16 +44,16 @@ export default function Contato() {
         cleanedValue = cleanedValue.substring(0, 3) + ')' + cleanedValue.substring(3);
       }
       if (cleanedValue.length > 9) { // Para números 9xxxx-xxxx ou 8xxxx-xxxx
-         // Verifica se é um número de 9 dígitos (celular com 9 na frente)
-         if (cleanedValue.length > 10 && cleanedValue[5] === '9') {
-             cleanedValue = cleanedValue.substring(0, 10) + '-' + cleanedValue.substring(10, 14);
-         } else { // Para números de 8 dígitos
-             cleanedValue = cleanedValue.substring(0, 9) + '-' + cleanedValue.substring(9, 13);
-         }
+          // Verifica se é um número de 9 dígitos (celular com 9 na frente)
+          if (cleanedValue.length > 10 && cleanedValue[5] === '9') {
+              cleanedValue = cleanedValue.substring(0, 10) + '-' + cleanedValue.substring(10, 14);
+          } else { // Para números de 8 dígitos
+              cleanedValue = cleanedValue.substring(0, 9) + '-' + cleanedValue.substring(9, 13);
+          }
       }
-       if (cleanedValue.length > 15) { // Limita o tamanho máximo
-           cleanedValue = cleanedValue.substring(0, 15);
-       }
+        if (cleanedValue.length > 15) { // Limita o tamanho máximo
+            cleanedValue = cleanedValue.substring(0, 15);
+        }
     }
     return cleanedValue;
   };
@@ -70,8 +71,8 @@ export default function Contato() {
       // Para outros campos, atualiza o estado normalmente
       setFormData(fd => ({ ...fd, [name]: value }));
     }
-     // Limpa a mensagem de status ao começar a digitar novamente
-     setStatusMessage('');
+      // Limpa a mensagem de status ao começar a digitar novamente
+      setStatusMessage('');
   };
 
   // Lida com o envio do formulário
@@ -81,7 +82,19 @@ export default function Contato() {
 
     try {
       // Envia os dados do formulário para o backend Flask no endpoint /contato
-      const response = await fetch('/contato', {
+      // Usa a variável de ambiente VITE_BACKEND_URL para obter a URL base do backend
+      const backendUrl = import.meta.env.VITE_BACKEND_URL; // <--- Obtém a URL do backend da variável de ambiente
+
+      if (!backendUrl) {
+        console.error('VITE_BACKEND_URL não está configurada.');
+        setStatusMessage('Erro: URL do backend não configurada.');
+        return;
+      }
+
+      // Constrói a URL completa do endpoint de contato
+      const contactEndpointUrl = `${backendUrl}/contato`; // <--- Constrói a URL completa
+
+      const response = await fetch(contactEndpointUrl, { // <--- Usa a URL completa
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -139,7 +152,7 @@ export default function Contato() {
             <textarea name="assunto" rows="4" value={formData.assunto} onChange={handleChange} placeholder="Assunto" required />
             <button type="submit">Enviar mensagem</button>
           </form>
-           {/* Exibir mensagem de status aqui */}
+            {/* Exibir mensagem de status aqui */}
           {statusMessage && <p className="status-message">{statusMessage}</p>}
         </div>
 
@@ -157,7 +170,7 @@ export default function Contato() {
             experiência atual.
           </p>
           {/* Parágrafo sobre as áreas (adaptado da imagem) */}
-          
+
         </div>
       </div>
     </section>
