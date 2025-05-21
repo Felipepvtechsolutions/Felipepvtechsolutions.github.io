@@ -84,4 +84,4 @@ if __name__ == '__main__':
     # Para testar localmente, debug=True é útil para ver erros detalhados
     # Certifique-se de que as variáveis de ambiente EMAIL_USER, EMAIL_PASSWORD, etc.,
     # estão definidas no ambiente onde você executa este script.
-    app.run(debug=True, port=5000) # Roda a aplicação na porta 5000
+    app.run(debug=False, port=6000) # Roda a aplicação na porta 5000
