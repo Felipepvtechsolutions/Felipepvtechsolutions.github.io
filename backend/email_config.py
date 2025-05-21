@@ -1,11 +1,11 @@
 import os
 import pytz
 
-EMAIL_USER ='xxxx@pvtechsolutions.com.br'
-EMAIL_PASSWORD ='xxxx'
-EMAIL_RECEIVER ='xxxx@pvtechsolutions.com.br'
-SMTP_SERVER ='xxxxx'
-SMTP_PORT =xxx
+EMAIL_USER ='naoresponda@pvtechsolutions.com.br'
+EMAIL_PASSWORD ='#A8Trw6Fc'
+EMAIL_RECEIVER ='contato@pvtechsolutions.com.br'
+SMTP_SERVER ='mailserver.mixdinternet.com.br'
+SMTP_PORT =587
 
 EMAIL_SUBJECT = "Leads Site"
 
