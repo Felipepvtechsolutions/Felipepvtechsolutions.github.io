@@ -61,6 +61,10 @@ def send_contact_email(data):
         print(f"Erro ao enviar E-mail: {e}")
         return False, f"Erro ao enviar E-mail: {e}"
 
+@app.route("/")
+def home():
+    return "Olá do Flask no Ubuntu 24.04!"
+
 
 # Define a rota '/contato' que aceita requisições POST
 @app.route('/contato', methods=['POST'])
@@ -84,4 +88,4 @@ if __name__ == '__main__':
     # Para testar localmente, debug=True é útil para ver erros detalhados
     # Certifique-se de que as variáveis de ambiente EMAIL_USER, EMAIL_PASSWORD, etc.,
     # estão definidas no ambiente onde você executa este script.
-    app.run(debug=False, port=6000) # Roda a aplicação na porta 5000
+    app.run(debug=True, port=6000) # Roda a aplicação na porta 5000
