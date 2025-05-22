@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       
-      '/contato': 'http://localhost:6000'
+      '/contato': 'http://localhost:60000'
     }
   }
 })
