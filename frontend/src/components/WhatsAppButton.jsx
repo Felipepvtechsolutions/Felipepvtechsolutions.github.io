@@ -5,7 +5,7 @@ import './WhatsAppButton.css'; // Importa o CSS específico para este componente
 
 const WhatsAppButton = () => {
   
-  const phoneNumber = '5517981556199'; 
+  const phoneNumber = '5517996416135'; 
   
  
   const message = encodeURIComponent('Olá, gostaria de saber mais sobre os serviços da PVTech Solutions. Poderíamos conversar?');
