@@ -1,0 +1,591 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #042b33;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.btn-orcamento {
+  background-color: #00c2c7;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-orcamento:hover {
+  background-color: #00e0e5;
+}
+
+.btn-saiba-mais {
+  background-color: #0f4c5c;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #13788b;
+}
+
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .btn-orcamento,
+  .btn-saiba-mais {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+.sobre-nos {
+  display: flex; 
+  align-items: center;
+  gap: 40px; 
+  flex-wrap: wrap; 
+}
+
+.sobre-nos .texto {
+  flex: 1; 
+  min-width: 300px; 
+  
+}
+
+.sobre-nos .imagem {
+  flex: 1; 
+  min-width: 250px; 
+  text-align: center; 
+  
+}
+
+.sobre-nos .imagem img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+
+
+.sobre-nos .texto h2 {
+  font-size: 2.5rem; 
+  margin-bottom: 1rem; 
+  color: #fff; 
+  
+}
+
+.sobre-nos .texto h2 span {
+  color: #00c2c7; 
+}
+
+.sobre-nos .texto p {
+  font-size: 1.1rem; 
+  line-height: 1.8; 
+  margin-bottom: 1.5rem; 
+  
+}
+
+
+.sobre-nos .texto p strong {
+  font-weight: 700; 
+  color: #00c2c7; 
+}
+
+
+.sobre-nos .texto p em {
+    font-weight: 700;
+    font-style: italic; 
+    color: #00c2c7; 
+}
+
+
+.sobre-nos .texto p + p {
+    margin-top: 1rem; 
+}
+
+@media (max-width: 768px) {
+   .sobre-nos .texto h2 {
+     font-size: 2rem; 
+     text-align: center; 
+   }
+   .sobre-nos .texto p {
+     font-size: 1rem; 
+     line-height: 1.6; 
+     text-align: center; 
+   }
+    
+}
+
+
+
+.footer {
+  background-color: #021b20; 
+  color: #fff; 
+  padding: 3rem 2rem; 
+  text-align: center; 
+  margin-top: 4rem; 
+ 
+}
+
+.footer-content {
+  max-width: 900px; 
+  margin: 0 auto; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 1.5rem; 
+}
+
+.footer-logo {
+  max-width: 180px; 
+}
+
+.footer address {
+  font-style: normal; 
+  line-height: 1.8; 
+  color: #ccc; 
+  font-size: 1rem; 
+}
+
+
+.footer address p {
+    margin-bottom: 0.5rem; 
+}
+
+.footer address p:last-child {
+    margin-bottom: 0; 
+}
+
+
+.footer-copy {
+  font-size: 0.9rem;
+  color: #aaa; 
+}
+
+
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 1rem;
+    }
+
+    .footer-logo {
+        max-width: 150px;
+    }
+
+    .footer address {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .footer address p {
+        margin-bottom: 0.3rem;
+    }
+
+    .footer-copy {
+        font-size: 0.8rem;
+    }
+}
+
+
+.header {
+  background-color: #021b20;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.logo {
+  max-width: 150px;
+    margin-right: 30px; 
+    
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem; 
+  list-style: none;
+}
+
+.nav-list a {
+color: #fff;
+font-weight: 500;
+transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+color: #00c2c7;
+}
+
+.btn-orcamento {
+background-color: #00c2c7;
+color: #000;
+padding: 0.5rem 1rem;
+border-radius: 5px;
+font-weight: 600;
+}
+
+.hero {
+background-image: url('/logos/banner.png');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-color: #021b20;
+
+height: 70vh; 
+
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 2rem;
+color: #fff; 
+}
+
+
+.hero-content {
+max-width: 800px;
+ 
+}
+
+.hero h1 {
+font-size: 3rem;
+line-height: 1.2;
+margin-bottom: 1rem;
+}
+
+.hero h1 span {
+color: #00c2c7;
+}
+
+.hero p {
+font-size: 1.25rem;
+margin-bottom: 2rem;
+}
+
+
+.btn-saiba-mais {
+  background-color: #00c2c7;
+  color: #fcfcfc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #00a5ab;
+}
+
+.servicos {
+    text-align: center; 
+}
+
+.servicos h2 {
+  font-size: 2rem;
+  text-align: center; 
+  margin-bottom: 2rem;
+  color: #fff; 
+}
+
+.servicos h2 span {
+  color: #00c2c7; 
+}
+
+.lista-servicos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; 
+  margin-top: 2rem;
+}
+
+.lista-servicos .item {
+  background-color: #3fb1b2;
+  padding: 1.5rem; 
+  border-radius: 10px;
+  flex: 0 1 300px; 
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.lista-servicos .item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 194, 199, 0.3);
+}
+
+.lista-servicos .item img {
+  width: 80%;
+  height: 60%; 
+  object-fit: contain; 
+  margin: 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.lista-servicos .item .service-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.lista-servicos .item:hover img {
+  transform: scale(1.1);
+}
+
+.lista-servicos .item:hover .service-title {
+  color: #00c2c7;
+}
+
+
+@media (max-width: 768px) {
+  .lista-servicos {
+    gap: 1.5rem;
+  }
+
+  .lista-servicos .item {
+    flex-basis: 200px;
+    padding: 1rem;
+    height: 200px;
+  }
+   
+}
+
+@media (max-width: 480px) {
+  .lista-servicos {
+     gap: 1rem;
+  }
+  .lista-servicos .item {
+     flex-basis: 100%; 
+     padding: 0.8rem; 
+     height: 180px;
+  }
+    
+}
+
+
+.contato {
+   
+    background-color: #042b33;
+    color: #fff;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.contato-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.formulario {
+    flex: 1;
+    min-width: 300px;
+    background-color: #06343d;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #00c2c7; /* Cor do título "Deixe seu contato" */
+    text-align: center; /* Centraliza o título do formulário */
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos do formulário em coluna */
+    gap: 1rem; /* Espaço entre os campos do formulário */
+}
+
+.formulario input,
+.formulario textarea {
+    padding: 1rem;
+    border: 1px solid #0f4c5c; /* Borda sutil */
+    border-radius: 5px;
+    background-color: #021b20; /* Fundo dos campos */
+    color: #fff; /* Cor do texto digitado */
+    font-family: 'Montserrat', sans-serif; /* Usa a fonte global */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input::placeholder,
+.formulario textarea::placeholder {
+    color: #ccc; /* Cor do placeholder */
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #00c2c7; /* Destaca a borda ao focar */
+    box-shadow: 0 0 5px rgba(0, 194, 199, 0.5); /* Sombra sutil ao focar */
+}
+
+.formulario button {
+    background-color: #00c2c7; /* Cor de fundo do botão */
+    color: #000; /* Cor do texto do botão */
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 1rem; /* Espaço acima do botão */
+}
+
+.formulario button:hover {
+    background-color: #00e0e5; /* Cor de fundo ao passar o mouse */
+}
+
+.formulario button:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+
+.contato-info {
+    flex: 1; /* Permite que a coluna de info cresça e ocupe espaço */
+    min-width: 300px; /* Largura mínima antes de quebrar */
+    /* Remova text-align: center; se quiser alinhar à esquerda */
+    /* text-align: center; */
+}
+
+.contato-info h1 {
+    font-size: 2.5rem; /* Tamanho do título grande */
+    line-height: 1.2; /* Espaçamento entre as linhas do título */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+    color: #fff; /* Cor do título */
+}
+
+.contato-info h1 span {
+    color: #00c2c7; /* Cor da parte colorida do título */
+}
+
+.contato-info p {
+    font-size: 1.1rem; /* Tamanho da fonte dos parágrafos */
+    line-height: 1.8; /* Espaçamento entre as linhas dos parágrafos */
+    margin-bottom: 1rem; /* Espaço entre os parágrafos */
+    color: #ccc; /* Cor dos parágrafos (ajuste se precisar) */
+}
+
+
+/* --- Responsividade para a Seção de Contato --- */
+
+@media (max-width: 768px) {
+  .contato-container {
+    flex-direction: column; /* Empilha as colunas verticalmente em telas menores */
+    gap: 3rem; /* Espaço entre o formulário e a info quando empilhados */
+  }
+
+  .formulario,
+  .contato-info {
+    min-width: unset; /* Remove a largura mínima */
+    width: 100%; /* Ocupa a largura total */
+  }
+
+  .contato-info {
+      order: -1; /* Opcional: move a info (texto) para cima do formulário em mobile */
+      text-align: center; /* Centraliza o texto em mobile */
+  }
+
+  .contato-info h1 {
+      font-size: 2rem; /* Ajusta o tamanho do título em mobile */
+  }
+
+  .contato-info p {
+      font-size: 1rem; /* Ajusta o tamanho dos parágrafos em mobile */
+      line-height: 1.6; /* Ajusta a altura da linha em mobile */
+  }
+
+  .formulario {
+      padding: 1.5rem; /* Ajusta o padding do formulário em mobile */
+  }
+
+  .formulario h3 {
+      font-size: 1.3rem; /* Ajusta o tamanho do título do formulário em mobile */
+  }
+
+  .formulario input,
+  .formulario textarea,
+  .formulario button {
+      font-size: 1rem; /* Ajusta o tamanho da fonte dos campos e botão em mobile */
+      padding: 0.8rem; /* Ajusta o padding dos campos e botão em mobile */
+  }
+}

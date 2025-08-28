@@ -1,0 +1,76 @@
+# Nome do workflow que aparecerá na aba Actions do GitHub
+name: Deploy Frontend to GitHub Pages
+
+# Evento que dispara o workflow
+on:
+  push:
+    branches:
+      - main # Dispara o workflow sempre que houver um push para a branch 'main'
+    # Opcional: Adicionar pull_request para rodar o build em PRs (não deploya)
+    # pull_request:
+    #   branches:
+    #     - main
+
+# Permissões necessárias para o workflow publicar nas Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Trabalhos (jobs) a serem executados
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest # Ambiente de execução (máquina virtual Ubuntu)
+
+    # Adiciona o ambiente de deploy para GitHub Pages
+    environment: # <--- ADICIONADO
+      name: github-pages # <--- ADICIONADO
+
+    steps:
+      # Passo 1: Faz o checkout do código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Passo 2: Configura o Node.js (versão 20 é uma boa escolha recente)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm' # Habilita cache para dependências npm
+          # Adiciona o caminho para o arquivo de lock de dependências do frontend
+          # Isso diz ao setup-node onde encontrar o package-lock.json
+          cache-dependency-path: './frontend/package-lock.json'
+
+      # Passo 3: Instala as dependências do frontend
+      # Navega para a pasta frontend e roda npm install
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+
+      # Passo 4: Roda o build do frontend para produção
+      # Navega para a pasta frontend e roda npm run build
+      # O Vite gerará a pasta 'dist' dentro de 'frontend'
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+
+      # Passo 5: Configura o ambiente de Pages
+      # Necessário para o passo de deploy
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Passo 6: Carrega os artefatos do build
+      # Pega o conteúdo da pasta 'frontend/dist' para ser publicado
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Mapeia a pasta 'dist' gerada pelo build como o artefato a ser publicado
+          path: './frontend/dist'
+
+      # Passo 7: Deploy para GitHub Pages
+      # Usa o artefato carregado para publicar o site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
