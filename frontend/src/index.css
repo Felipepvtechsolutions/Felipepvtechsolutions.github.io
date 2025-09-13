@@ -239,7 +239,7 @@ img {
 
 .header {
   background-color: #021b20;
-  padding: 1rem 2rem;
+  padding: 0.4rem 1rem; /* reduz altura */
   position: sticky;
   top: 0;
   z-index: 999;
@@ -251,13 +251,12 @@ img {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .logo {
-  max-width: 150px;
-    margin-right: 30px; 
-    
+  max-width: 100px;   /* reduz a logo */
+  margin-right: 15px; /* menos espaço entre logo e menu */
 }
 
 .nav-list {
