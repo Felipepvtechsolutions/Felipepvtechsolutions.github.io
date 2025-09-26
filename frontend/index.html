@@ -9,13 +9,13 @@
 
   <style>
     :root{
-      --brand:#0057b8;
-      --brand-2:#0a77ff;
-      --ink:#0b1220;
-      --muted:#aab6cf;
-      --bg:#0b1020;
-      --ok:#0bb07b;
-      --warn:#ffb703;
+      --brand:#0057b8;       /* azul principal */
+      --brand-2:#0a77ff;     /* azul gradiente */
+      --ink:#0b1220;         /* texto escuro (para cards claros) */
+      --muted:#aab6cf;       /* texto secundário no fundo escuro */
+      --bg:#0b1020;          /* fundo base (fica por baixo do overlay) */
+      --ok:#0bb07b;          /* acentos */
+      --warn:#ffb703;        /* acentos */
       --radius:16px;
       --shadow:0 6px 30px rgba(0,0,0,.25);
       --shadow-sm:0 3px 14px rgba(0,0,0,.18);
@@ -31,7 +31,7 @@
     .grid{display:grid;gap:24px}
     section{padding:72px 0;scroll-margin-top:90px}
 
-    /* ===== Fundo fixo ===== */
+    /* ===== Plano de fundo fixo escuro ===== */
     body::before{
       content:"";position:fixed;inset:0;z-index:-1;
       background:
@@ -47,8 +47,14 @@
     .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
     .btn--alt{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
     .tag{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:rgba(10,119,255,.18);color:#d7e7ff;font-weight:700;font-size:.8rem}
+
     .card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;color:#eaf0ff}
     .card h3{margin:12px 0 6px;color:#fff}
+
+    /* ===== Topbar ===== */
+    .topbar{color:#cfe3ff;font-size:.92rem;background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .topbar__row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;gap:12px}
+    .topbar__row a{display:inline-flex;align-items:center;gap:.5rem}
 
     /* ===== Header / Nav ===== */
     header{position:sticky;top:0;z-index:50;background:rgba(6,12,24,.55);backdrop-filter:saturate(1.1) blur(10px);border-bottom:1px solid rgba(255,255,255,.12)}
@@ -59,6 +65,8 @@
     .menu a{color:#e8f2ff;font-weight:600;opacity:.9}
     .menu a:hover{opacity:1}
     .burger{display:none}
+
+    /* Mobile menu */
     @media (max-width: 720px){
       .menu{display:none}
       .menu.open{display:flex;position:absolute;right:20px;left:20px;top:64px;padding:16px;border-radius:14px;background:rgba(10,15,30,.95);flex-direction:column;gap:14px;border:1px solid rgba(255,255,255,.12)}
@@ -72,40 +80,52 @@
     .hero p{color:var(--muted);font-size:1.05rem;margin:0 0 1.2rem;max-width:640px}
     .hero__cta{display:flex;gap:12px;flex-wrap:wrap}
     .hero__ill{position:relative}
+    .hero__card{display:none !important}
+    .hero__card b{display:block;font-size:.95rem}
+    .hero__card small{display:block;color:#d7e7ff}
 
-    /* ===== Títulos / textos ===== */
+    /* ===== Section headings ===== */
     section h2{font-size:clamp(22px,3.4vw,34px);margin:0 0 8px;color:#fff}
     section p.lead{color:#c7d3ef;max-width:720px}
 
-    /* ===== Services ===== */
+    /* Services */
     .svc{grid-template-columns:repeat(3,1fr)}
     .icon{width:42px;height:42px;border-radius:12px;background:rgba(0,87,184,.25);display:grid;place-items:center;font-weight:800;color:#fff;border:1px solid rgba(255,255,255,.2)}
 
-    /* ===== About ===== */
+    /* About */
     .about__row{grid-template-columns:1fr 1fr;align-items:center;justify-items:start}
     .about__img{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;position:relative;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.2);overflow:hidden}
+
+    .about__badge{position:absolute;right:16px;bottom:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow);color:#fff;line-height:1.2}
+    .about__badge b{display:block;font-size:.95rem}
+    .about__badge small{display:block;color:#d7e7ff}
+
+    @media (max-width:720px){
+      .about__badge{right:auto;left:12px;bottom:12px}
+    }
+
     .about__img img{width:100%;height:100%;object-fit:cover}
     .about__info{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:rgba(255,255,255,.04);border-left:1px solid rgba(255,255,255,.12)}
     .about__info h3{margin:0 0 6px;color:#fff;font-size:1.25rem}
     .about__info p{margin:0;color:#d7e7ff}
-    @media (max-width:720px){.about__img{grid-template-columns:1fr}.about__info{border-left:0;border-top:1px solid rgba(255,255,255,.12)}}
+    @media (max-width:720px){.about_img{grid-template-columns:1fr}.about_info{border-left:0;border-top:1px solid rgba(255,255,255,.12)}}
 
-    /* ===== Logos ===== */
+    /* Logos */
     .logos{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:center;opacity:.9}
     .logos img{filter:grayscale(1);opacity:.75}
 
-    /* ===== CTA band ===== */
+    /* CTA band */
     .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-radius:calc(var(--radius) * 1.5);padding:28px;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.18)}
     .cta p{margin:0;color:#ebf3ff}
 
-    /* ===== Contact ===== */
+    /* Contact */
     .contact__row{grid-template-columns:1.1fr .9fr;align-items:start}
     form{display:grid;gap:12px}
     input, textarea, select{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.08);color:#fff;font:inherit}
     textarea{min-height:120px}
     input::placeholder, textarea::placeholder{color:#d0d8ee}
 
-    /* ===== Footer ===== */
+    /* Footer */
     footer{background:rgba(6,12,24,.65);backdrop-filter:blur(12px);color:#c8d1e1;border-top:1px solid rgba(255,255,255,.12)}
     footer a{color:#fff}
     .footer__row{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:26px;padding:54px 0}
@@ -122,32 +142,6 @@
     @media (max-width: 720px){
       .svc{grid-template-columns:1fr}
       .cta{flex-direction:column;align-items:flex-start}
-    }
-
-    /* ===== Scroll reveal (animações) ===== */
-    .reveal,
-    .reveal-up,
-    .reveal-left,
-    .reveal-right,
-    .reveal-zoom{
-      opacity:0;
-      transform: translateY(24px);
-      transition: transform .75s cubic-bezier(.2,.65,.2,1), opacity .75s linear;
-      will-change: transform, opacity;
-    }
-    .reveal-left{ transform: translateX(-24px); }
-    .reveal-right{ transform: translateX(24px); }
-    .reveal-zoom{ transform: scale(.96); }
-
-    .is-visible{
-      opacity:1 !important;
-      transform:none !important;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .reveal,.reveal-up,.reveal-left,.reveal-right,.reveal-zoom{
-        transition:none;transform:none;opacity:1;
-      }
     }
   </style>
 </head>
@@ -167,53 +161,57 @@
 
   <section class="hero">
     <div class="container hero__row">
-      <div class="reveal-left">
+      <div>
         <span class="tag">Infra • Nuvem • Segurança</span>
         <h1>Excelência em soluções de TI para o seu negócio</h1>
-        <p>Projetamos, implantamos e sustentamos ambientes de tecnologia com foco em performance, segurança e custo-efetividade. Atendemos empresas de todos os portes.</p>
+        <p>Projetamos, implantamos e sustentamos ambientes de tecnologia com foco em performance, segurança e custo‑efetividade. Atendemos empresas de todos os portes.</p>
         <div class="hero__cta">
           <a class="btn" href="#contato">Fale com um especialista</a>
           <a class="btn btn--alt" href="#servicos">Conheça os serviços</a>
         </div>
       </div>
-      <div class="hero__ill reveal-right" data-delay="120">
+      <div class="hero__ill">
         <img src="https://www.pvtechsolutions.com.br/assets/solutions-D1ujD1cT.png" alt="Ilustração infraestrutura e nuvem"/>
-        <!-- (card de SLA removido a pedido) -->
+          <div>
+            <b>99,9% de SLA</b>
+            <small>Suporte 24×7 • NPS alto</small>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="servicos">
     <div class="container">
-      <h2 class="reveal-up">Serviços</h2>
-      <p class="lead reveal-up" data-delay="80">Do diagnóstico à operação contínua. Montamos a arquitetura certa para sua necessidade – on-premises, híbrida ou 100% cloud.</p>
+      <h2>Serviços</h2>
+      <p class="lead">Do diagnóstico à operação contínua. Montamos a arquitetura certa para sua necessidade – on‑premises, híbrida ou 100% cloud.</p>
       <div class="grid svc" style="margin-top:22px">
-        <article class="card reveal-up" data-delay="0">
+        <article class="card">
           <div class="icon">☁️</div>
-          <h3>Cloud &amp; DevOps</h3>
+          <h3>Cloud & DevOps</h3>
           <p>Arquitetura em AWS/Azure, automação CI/CD, observabilidade e FinOps.</p>
         </article>
-        <article class="card reveal-up" data-delay="100">
+        <article class="card">
           <div class="icon">🛡️</div>
           <h3>Segurança</h3>
           <p>Hardening, gestão de vulnerabilidades, SOC e resposta a incidentes.</p>
         </article>
-        <article class="card reveal-up" data-delay="200">
+        <article class="card">
           <div class="icon">🖧</div>
           <h3>Infraestrutura</h3>
-          <p>Redes, servidores, backup, virtualização, Wi-Fi corporativo e telefonia IP.</p>
+          <p>Redes, servidores, backup, virtualização, Wi‑Fi corporativo e telefonia IP.</p>
         </article>
-        <article class="card reveal-up" data-delay="300">
+        <article class="card">
           <div class="icon">👨‍💻</div>
           <h3>Suporte Helpdesk</h3>
-          <p>Atendimento multi-nível com SLA, catálogo de serviços e portal do usuário.</p>
+          <p>Atendimento multi‑nível com SLA, catálogo de serviços e portal do usuário.</p>
         </article>
-        <article class="card reveal-up" data-delay="400">
+        <article class="card">
           <div class="icon">🧩</div>
           <h3>Projetos</h3>
-          <p>Implantações end-to-end com PMO, cronograma e documentação completa.</p>
+          <p>Implantações end‑to‑end com PMO, cronograma e documentação completa.</p>
         </article>
-        <article class="card reveal-up" data-delay="500">
+        <article class="card">
           <div class="icon">📈</div>
           <h3>Consultoria</h3>
           <p>Avaliação de maturidade, roadmap e governança orientada a resultados.</p>
@@ -224,7 +222,7 @@
 
   <section id="sobre">
     <div class="container grid about__row">
-      <div class="about__img reveal-left">
+      <div class="about__img">
         <img src="https://emphasysit.services/wp-content/uploads/2022/03/Como_montar_uma_equipe_de_TI_de_alta_performance.png" alt="Equipe de TI trabalhando"/>
         <div class="about__info">
           <div>
@@ -233,7 +231,7 @@
           </div>
         </div>
       </div>
-      <div class="reveal-right" data-delay="120">
+      <div>
         <h2>Quem somos</h2>
         <p class="lead">Somos um time de especialistas com experiência prática em ambientes de missão crítica. Trabalhamos com as melhores práticas do mercado e parceiros tecnológicos líderes.</p>
         <ul>
@@ -254,13 +252,13 @@
 
   <section id="contato" class="contact">
     <div class="container grid contact__row">
-      <div class="reveal-left">
+      <div>
         <h2>Fale com a gente</h2>
         <p class="lead">Envie uma mensagem e retornamos rapidamente para entender sua demanda.</p>
         <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (exemplo)'); this.reset();">
           <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
             <input required placeholder="Nome"/>
-            <input type="email" required placeholder="E-mail"/>
+            <input type="email" required placeholder="E‑mail"/>
           </div>
           <input placeholder="Empresa"/>
           <select required>
@@ -274,7 +272,7 @@
           <button class="btn" type="submit">Enviar mensagem</button>
         </form>
       </div>
-      <div class="reveal-right" data-delay="120">
+      <div>
         <div class="card">
           <h3>Informações</h3>
           <p>📍 Endereço da empresa, 123 — Sua cidade/UF</p>
@@ -287,26 +285,26 @@
 
   <footer>
     <div class="container footer__row">
-      <div class="reveal-up">
+      <div>
         <a class="logo" href="#" style="color:#fff"><img src="https://www.pvtechsolutions.com.br/assets/logo_semfundo-CjOrt66R.png" alt="Logo"/><span>PV Tech Solutions</span></a>
         <p style="margin-top:10px;color:#c8d1e1">Soluções completas de tecnologia para acelerar resultados com segurança e eficiência.</p>
       </div>
-      <div class="reveal-up" data-delay="80">
+      <div>
         <h4>Serviços</h4>
         <ul style="list-style:none;padding:0;line-height:2">
-          <li><a href="#servicos">Cloud &amp; DevOps</a></li>
+          <li><a href="#servicos">Cloud & DevOps</a></li>
           <li><a href="#servicos">Segurança</a></li>
           <li><a href="#servicos">Infraestrutura</a></li>
         </ul>
       </div>
-      <div class="reveal-up" data-delay="160">
+      <div>
         <h4>Empresa</h4>
         <ul style="list-style:none;padding:0;line-height:2">
           <li><a href="#sobre">Quem somos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
-      <div class="reveal-up" data-delay="240">
+      <div>
         <h4>Legal</h4>
         <ul style="list-style:none;padding:0;line-height:2">
           <li><a href="#">Termos de uso</a></li>
@@ -314,7 +312,9 @@
         </ul>
       </div>
     </div>
-    <div class="container copyright">© <span id="y"></span> PV Tech Solutions – Todos os direitos reservados.</div>
+    <div class="container copyright">© <span id="y"></span> PV Tech Solutions – Todos os direitos reservados.
+
+</div>
   </footer>
 
   <script>
@@ -323,30 +323,6 @@
       const isOpen = menu.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(isOpen));
     }
-
-    // ===== Scroll reveal (IntersectionObserver) =====
-    (function(){
-      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom');
-      if (prefersReduced || !('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const delay = el.dataset.delay || 0;
-            el.style.transitionDelay = delay ? `${delay}ms` : '';
-            el.classList.add('is-visible');
-            obs.unobserve(el);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-
-      els.forEach(el => io.observe(el));
-    })();
-
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
