@@ -106,6 +106,35 @@
     textarea{min-height:120px}
     input::placeholder, textarea::placeholder{color:#d0d8ee}
 
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;   /* distância do rodapé */
+  right: 20px;    /* distância da lateral */
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+
     /* ===== Footer ===== */
     footer{background:rgba(6,12,24,.65);backdrop-filter:blur(12px);color:#c8d1e1;border-top:1px solid rgba(255,255,255,.12)}
     footer a{color:#fff}
