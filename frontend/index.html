@@ -430,5 +430,33 @@
 
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+  <script>
+  document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = {
+      nome: form.nome.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      assunto: form.assunto.value,
+      mensagem: form.mensagem.value
+    };
+
+    const resp = await fetch("https://api.pvtechsolutions.com.br/email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (resp.ok) {
+      alert("Mensagem enviada com sucesso! ✅");
+      form.reset();
+    } else {
+      alert("Erro ao enviar mensagem. Tente novamente mais tarde ❌");
+    }
+  });
+</script>
+
 </body>
 </html>
